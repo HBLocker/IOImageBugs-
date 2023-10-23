@@ -17,9 +17,6 @@ I  decided a texture file as I made a presumption that it being a texture file i
 
 A texture file, in the context of computer graphics, is an image or a collection of images used to add surface detail, color, or visual effects to 3D models in computer graphics and video games. Textures are applied to 3D objects to make them look more realistic
 
-- Khronos Group Involvement: The Khronos Group, known for developing open standards in the graphics industry, took on the task of creating a standardized texture format.
-  This effort involved collaboration from various companies and developers in the graphics community.
-
 - Creation of KTX Format: KTX files were introduced as a solution. They are designed to be compact, easily parsed, and contain all the necessary information for efficient texture  loading. KTX files support a wide range of texture types, including 2D textures, cubemaps, and 3D textures.
 
 The file follows the following structure:
@@ -35,7 +32,7 @@ The file follows the following structure:
 
 Which is then read in by IOimage once it has been passed to it. 
 
-Io image first idenfiies the fule type by the inner identifier at the top once that bound has been passed the rest of the data is read into the the libary spesific functions. 
+Io image first idenfiies the file type by the inner identifier at the top once that bound has been passed the rest of the data is read into the the libary spesific functions. 
 
 After then searching for the ktf file name in ida, we can see all the functions used to render this image type , there are rougly 199 diffeent funcitons used for the ktx type:
 here are a ferw examples:
