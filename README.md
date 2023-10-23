@@ -143,7 +143,7 @@ The asan logs showed the following was casing the bad memory allocation:
 #3 0x19c679870 in ETCReadPlugin::initialize(IIODictionary*)+0x2a0 (ImageIO:arm64e+0xcd870)
 #4 0x19c5bccf4 in IIOReadPlugin::callInitialize()+0x84 (ImageIO:arm64e+0x10cf4)
 #5 0x19c5bca08 in IIO_Reader::initImageAtOffset(CGImagePlugin*, unsigned long, unsigned long, unsigned long)+0x78 (ImageIO:arm64e+0x10a08)
-...
+```
 
 
 Here is a really simplified version of the code as it is rather long, this is some of it commented out and reordered so it is easier to follow
