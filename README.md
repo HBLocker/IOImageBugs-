@@ -31,6 +31,8 @@ The file follows the following structure:
 [Key-Value Data]
 [Texture Data]
 ```
+![overview](https://www.khronos.org/assets/uploads/apis/2021-ktx-universal-gpu-compressed-textures.png)
+
 Which is then read in by IOimage once it has been passed to it. 
 
 Io image first idenfiies the fule type by the inner identifier at the top once that bound has been passed the rest of the data is read into the the libary spesific functions. 
