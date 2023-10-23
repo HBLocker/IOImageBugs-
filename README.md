@@ -3,7 +3,7 @@ Though this being a somewhat unsuccessful write up for the discovery of finding 
 ## Setting the Scene 
 
 After reading a lot of Project0 blog posts in particular the [following](https://googleprojectzero.blogspot.com/2020/04/fuzzing-imageio.html) I decided to give it a go myself. Can an image be read in to memory and trigger a bug? 
-After extracting the cache and reversing IOimage in Ida pro there are many undomcumeted file types which this suports, for this write up I chose:
+After extracting the cache and reversing IOimage in Ida pro there are many undocumented file types which this suports, for this write up I chose:
 
 
 ```bash
