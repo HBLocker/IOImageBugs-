@@ -59,7 +59,7 @@ IIO_Reader_KTX2::hasCustomImageCountProc(void)
 
 Next is time to obtain sample images after some research and more time readin about this file, I stumbled upon a formum from 2003 which had a few texrture files for the sims, as a user did not like the teture for the grass. As an obscure and neich this issue this is to someone, I am glad though they re made the grass texture as I now have seed files for the harness. 
 
-After writing a harness, this was before this as added in a a sample harness within [Jackalope](https://github.com/googleprojectzero/Jackalope/commit/ce04e4f723126b287da7e3a89db2a9cb28726a5b)  which I used, I then began to fuzz the target and left it for a few days. I used shem as it is quicker and I wanted to get as much coverage and mutations as quick as possible. 
+After writing a harness,which I used, I then began to fuzz the target and left it for a few days. I used shem as it is quicker and I wanted to get as much coverage and mutations as quick as possible. 
 
 Then, alas a bug! one crash found, now time to triarge and see what it is:
 ```bash
