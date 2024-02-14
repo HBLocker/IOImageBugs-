@@ -1,0 +1,91 @@
+==11502==ERROR: AddressSanitizer: SEGV on unknown address 0xffffbebebebebede (pc 0x0001963d4680 bp 0x00016dabcac0 sp 0x00016dabc9e0 T0)
+==11502==The signal is caused by a READ memory access.
+#0 0x1963d4680 in kd_tile::set_elements_of_interest()+0x36c (libJP2.dylib:arm64e+0x26680)
+#1 0x1963d6488 in kd_tile::open()+0xfc (libJP2.dylib:arm64e+0x28488)
+#2 0x1963cbb88 in kdu_codestream::open_tile(kdu_coords, kdu_thread_env*)+0x19c (libJP2.dylib:arm64e+0x1db88)
+#3 0x196428544 in kdu_region_decompressor::open_tile(int)+0x70 (libJP2.dylib:arm64e+0x7a544)
+#4 0x196428e98 in kdu_region_decompressor::process_generic(int, int, kdu_coords, int, int, int, kdu_dims&, kdu_dims&, int, bool)+0xa4 (libJP2.dylib:arm64e+0x7ae98)
+#5 0x19642b3ec in kdu_region_decompressor::process(int*, kdu_coords, int, int, int, int, kdu_dims&, kdu_dims&)+0x1c0 (libJP2.dylib:arm64e+0x7d3ec)
+#6 0x196401918 in kdrc_stream::process(int, kdu_dims&, int&)+0x1d8 (libJP2.dylib:arm64e+0x53918)
+#7 0x1964082a0 in kdu_region_compositor::process(int, kdu_dims&)+0x13c (libJP2.dylib:arm64e+0x5a2a0)
+#8 0x1963e8940 in _cg_JP2DecompressBlock+0x124 (libJP2.dylib:arm64e+0x3a940)
+#9 0x19278d144 in JP2ReadPlugin::decodeJP2Block(void*, CGRect)+0x6c (ImageIO:arm64e+0xe8144)
+#10 0x19278e068 in JP2ReadPlugin::decodeImageImp(IIODecodeParameter*, IIOImageType, __IOSurface**, __CVBuffer**, CGImageBlockSet**)+0x34c (ImageIO:arm64e+0xe9068)
+#11 0x19274930c in IIOReadPlugin::callDecodeImage(IIODecodeParameter*, IIOImageType, __IOSurface**, __CVBuffer**, CGImageBlockSet**)+0x2f0 (ImageIO:arm64e+0xa430c)
+#12 0x1926c11f0 in IIO_Reader::CopyImageBlockSetProc(void*, CGImageProvider*, CGRect, CGSize, __CFDictionary const*)+0x2ac (ImageIO:arm64e+0x1c1f0)
+#13 0x1926dcbf4 in IIOImageProviderInfo::copyImageBlockSetWithOptions(CGImageProvider*, CGRect, CGSize, __CFDictionary const*)+0x19c (ImageIO:arm64e+0x37bf4)
+#14 0x1926c0e58 in IIOImageProviderInfo::CopyImageBlockSetWithOptions(void*, CGImageProvider*, CGRect, CGSize, __CFDictionary const*)+0x320 (ImageIO:arm64e+0x1be58)
+#15 0x18d90b544 in imageProvider_retain_data+0x78 (CoreGraphics:arm64e+0x3a544)
+#16 0x18d90b460 in CGDataProviderRetainData+0x4c (CoreGraphics:arm64e+0x3a460)
+#17 0x18d90b2ec in CGAccessSessionCreate+0x6c (CoreGraphics:arm64e+0x3a2ec)
+#18 0x18d8e25c8 in CGDataProviderCopyData+0xa8 (CoreGraphics:arm64e+0x115c8)
+#19 0x18d9088f4 in CGImageGetDataProviderInternal+0x50 (CoreGraphics:arm64e+0x378f4)
+#20 0x18d907ed4 in CGDataProviderCreateForDestinationWithImage+0x68 (CoreGraphics:arm64e+0x36ed4)
+#21 0x18d906d2c in img_image+0x48c (CoreGraphics:arm64e+0x35d2c)
+#22 0x18d906424 in CGSImageDataLock+0x40c (CoreGraphics:arm64e+0x35424)
+#23 0x18d905fd0 in RIPImageDataInitializeShared+0xb4 (CoreGraphics:arm64e+0x34fd0)
+#24 0x18d905c38 in RIPImageCacheGetRetained+0x210 (CoreGraphics:arm64e+0x34c38)
+#25 0x18d905914 in ripc_AcquireRIPImageData+0x2d4 (CoreGraphics:arm64e+0x34914)
+#26 0x18d9048fc in ripc_DrawImage+0x2c4 (CoreGraphics:arm64e+0x338fc)
+#27 0x18d903e9c in CGContextDrawImageWithOptions+0x2c8 (CoreGraphics:arm64e+0x32e9c)
+#28 0x102342878 in fuzz+0x658 (IO_Image_harness:arm64+0x100002878)
+#29 0x1023437ac in main+0x980 (IO_Image_harness:arm64+0x1000037ac)
+#30 0x1879b10dc (<unknown module>)
+
+==11502==Register values:
+x[0] = 0x0000000000000000 x[1] = 0x0000000000000000 x[2] = 0x0000000000000001 x[3] = 0x000000010000002d
+x[4] = 0x0000000000000001 x[5] = 0x000000000000006e x[6] = 0x0000000000000000 x[7] = 0x0000000102500ac0
+x[8] = 0x000000010e3038f0 x[9] = 0x0000000000000003 x[10] = 0xbebebebebebebebe x[11] = 0x0000000000000000
+x[12] = 0x0000000000000000 x[13] = 0x0000000000000004 x[14] = 0x0000000000000003 x[15] = 0x0000000000000000
+x[16] = 0x00000000fffffffe x[17] = 0x0000000000000002 x[18] = 0x0000000000000000 x[19] = 0x000000010a81f5a0
+x[20] = 0x000000010a81f59c x[21] = 0x000000010a81f558 x[22] = 0x000000010a81f5c0 x[23] = 0x000000010a81f5a4
+x[24] = 0x000000010e303c58 x[25] = 0x0000000106510500 x[26] = 0x000000010e303090 x[27] = 0x00000000000002c0
+x[28] = 0x000000010a81f598 fp = 0x000000016dabcac0 lr = 0x00000001963d4b48 sp = 0x000000016dabc9e0
+AddressSanitizer can not provide additional info.
+SUMMARY: AddressSanitizer: SEGV (libJP2.dylib:arm64e+0x26680) in kd_tile::set_elements_of_interest()+0x36c
+==11502==ABORTING
+
+
+
+
+* thread #1, queue = 'com.apple.main-thread', stop reason = EXC_BAD_ACCESS (code=1, address=0x0)
+  * frame #0: 0x0000000193644980 libJP2.dylib`kd_packet_sequencer::next_in_sequence(kd_resolution*&, kdu_coords&) + 20
+    frame #1: 0x000000019365444c libJP2.dylib`kd_tile::read_tile_part_header() + 1436
+    frame #2: 0x0000000193651770 libJP2.dylib`kd_tile::initialize() + 304
+    frame #3: 0x000000019364b01c libJP2.dylib`kd_codestream::create_tile(kdu_coords) + 300
+    frame #4: 0x000000019364eae8 libJP2.dylib`kdu_codestream::open_tile(kdu_coords, kdu_thread_env*) + 252
+    frame #5: 0x00000001936ab548 libJP2.dylib`kdu_region_decompressor::open_tile(int) + 116
+    frame #6: 0x00000001936abe9c libJP2.dylib`kdu_region_decompressor::process_generic(int, int, kdu_coords, int, int, int, kdu_dims&, kdu_dims&, int, bool) + 168
+    frame #7: 0x00000001936ae3f0 libJP2.dylib`kdu_region_decompressor::process(int*, kdu_coords, int, int, int, int, kdu_dims&, kdu_dims&) + 452
+    frame #8: 0x000000019368491c libJP2.dylib`kdrc_stream::process(int, kdu_dims&, int&) + 476
+    frame #9: 0x000000019368b2a4 libJP2.dylib`kdu_region_compositor::process(int, kdu_dims&) + 320
+    frame #10: 0x000000019366b944 libJP2.dylib`_cg_JP2DecompressBlock + 296
+    frame #11: 0x000000018fa0bee0 ImageIO`JP2ReadPlugin::decodeJP2Block(void*, CGRect) + 112
+    frame #12: 0x000000018fa0ce14 ImageIO`JP2ReadPlugin::decodeImageImp(IIODecodeParameter*, IIOImageType, __IOSurface**, __CVBuffer**, CGImageBlockSet**) + 852
+    frame #13: 0x000000018f9c7f9c ImageIO`IIOReadPlugin::callDecodeImage(IIODecodeParameter*, IIOImageType, __IOSurface**, __CVBuffer**, CGImageBlockSet**) + 756
+    frame #14: 0x000000018f93fbcc ImageIO`IIO_Reader::CopyImageBlockSetProc(void*, CGImageProvider*, CGRect, CGSize, __CFDictionary const*) + 688
+    frame #15: 0x000000018f95b690 ImageIO`IIOImageProviderInfo::copyImageBlockSetWithOptions(CGImageProvider*, CGRect, CGSize, __CFDictionary const*) + 416
+    frame #16: 0x000000018f93f834 ImageIO`IIOImageProviderInfo::CopyImageBlockSetWithOptions(void*, CGImageProvider*, CGRect, CGSize, __CFDictionary const*) + 804
+    frame #17: 0x000000018ab84a28 CoreGraphics`imageProvider_retain_data + 124
+    frame #18: 0x000000018ab84944 CoreGraphics`CGDataProviderRetainData + 80
+    frame #19: 0x000000018ab847d0 CoreGraphics`CGAccessSessionCreate + 112
+    frame #20: 0x000000018ab5baac CoreGraphics`CGDataProviderCopyData + 172
+    frame #21: 0x000000018ab81dd8 CoreGraphics`CGImageGetDataProviderInternal + 84
+    frame #22: 0x000000018ab813b8 CoreGraphics`CGDataProviderCreateForDestinationWithImage + 108
+    frame #23: 0x000000018ab80210 CoreGraphics`img_image + 1168
+    frame #24: 0x000000018ab7f908 CoreGraphics`CGSImageDataLock + 1040
+    frame #25: 0x000000018ab7f4b4 CoreGraphics`RIPImageDataInitializeShared + 184
+    frame #26: 0x000000018ab7f11c CoreGraphics`RIPImageCacheGetRetained + 532
+    frame #27: 0x000000018ab7edf8 CoreGraphics`ripc_AcquireRIPImageData + 728
+    frame #28: 0x000000018ab7dde0 CoreGraphics`ripc_DrawImage + 712
+    frame #29: 0x000000018ab7d380 CoreGraphics`CGContextDrawImageWithOptions + 716
+    frame #30: 0x0000000100002724 IO_Image_harness`fuzz(name="jiffout/crashes/access_violation_0xxxxxxx980_0x0_1") at main.m:108:7
+    frame #31: 0x0000000100003684 IO_Image_harness`main(argc=3, argv=0x000000016fdff120) at main.m:149:3
+    frame #32: 0x0000000184c150e0 dyld`start + 2360
+
+
+Affected Component: CoreGraphics
+Function: CGDataProviderUpscale.c
+Error Type: Reachable Assertion
+Crash: Failed assertion `src_byte_pos >= 0 && src_byte_pos < INT_MAX’ at line 1121 of CGDataProviderUpscale.c
+
